@@ -1,7 +1,12 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <el-tabs v-model="activeName" @tab-click="handleClick">
+    <el-tabs
+      v-model="activeName"
+      :closable="true"
+      type="border-card"
+      @tab-remove="removeTab"
+    >
       <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
       <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
       <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
@@ -22,6 +27,9 @@ export default {
   methods: {
     handleClick(tab, event) {
       console.log(tab, event);
+    },
+    removeTab(targetName) {
+      console.log(targetName,'AAAAAAAAAAAAAAAAAAAAAA');
     },
   },
 };
